@@ -11,8 +11,23 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
-    res.send('This is Contact Page');
+    res.send(
+        `<h1>Welcome to the contact Page</h1>
+        <a href="/about">About</a>`
+    );
 });
+
+
+app.get('/about', (req, res) => {
+    res.send(   // json data
+        [
+            {name: "Ali", age: 30, isEligible: true},
+            {name: "Sara", age: 25 , isEligible: false},
+            {name: "Hassam", age: 22, isEligible: true}
+        ]
+    );
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
